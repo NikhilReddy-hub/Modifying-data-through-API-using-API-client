@@ -1,31 +1,30 @@
-You have been hired by a local restaurant to develop a simplified backend system for managing their online menu. The restaurant needs the following functionality:
+# Restaurant Menu Management API
+This is a simplified backend system for managing the online menu of a local restaurant.
 
-- Add new menu items to their database.
+## Features
 
-- Each menu item should have a **name, description, price.**
+- Add new menu items to the database.
+- Retrieve a list of all menu items.
 
-- The staff should be able to retrieve a list of every item currently in the menu database.  
+## API Endpoints
 
-## Instructions:
+### POST /menu
+- **Description**: Creates a new menu item in the database.
+- **Request Body**:
+  - `name` (String, required)
+  - `description` (String, optional)
+  - `price` (Number, required)
+- **Response**: 
+  - Success: `{ message: 'Menu item created', item: savedItem }`
+  - Error: `{ message: 'Error creating menu item', error }`
 
-### Initialize the Project:
+### GET /menu
+- **Description**: Fetches the entire list of menu items.
+- **Response**: 
+  - Success: An array of `MenuItem` objects.
+  - Error: `{ message: 'Error fetching menu items', error }`
 
-Basic express template was given  
-You need to install all the necessary packages required for the task.
-
-### Define a MenuItem schema that includes:
-- name (String, required)
-- description (String)
-- price (Number, required)
-
-### MongoDB Atlas Connection
-
-- Create a MongoDB Atlas account and set up a free cluster.
-Use Mongoose to connect your Express server to the MongoDB Atlas cluster.
-
-### Routes / Endpoints
-
-- POST /menu: Creates a new menu item in the database.
+## Setup Instructions
 - Accepts the required fields in the request body.
 - Responds with a success message and the newly created object (or an error message if something goes wrong).
 GET /menu: Fetches the entire list of menu items.
